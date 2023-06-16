@@ -35,8 +35,8 @@ sudo defaults write /Library/LaunchDaemons/removeAdmin.plist Label -string "remo
 #Add program argument to have it run the update script
 sudo defaults write /Library/LaunchDaemons/removeAdmin.plist ProgramArguments -array -string /bin/sh -string "/Library/Application Support/JAMF/removeAdminRights.sh"
 
-#Set the run inverval to run every 7 days
-sudo defaults write /Library/LaunchDaemons/removeAdmin.plist StartInterval -integer 1800
+#Set the run duration (default is 5 minutes
+sudo defaults write /Library/LaunchDaemons/removeAdmin.plist StartInterval -integer 300
 
 #Set run at load
 sudo defaults write /Library/LaunchDaemons/removeAdmin.plist RunAtLoad -boolean yes
@@ -78,7 +78,7 @@ if [[ -f /private/var/userToRemove/user ]]; then
 	echo "Removing $userToRemove's admin privileges"
 	/usr/sbin/dseditgroup -o edit -d $userToRemove -t user admin
 	rm -f /private/var/userToRemove/user
- 	log collect --last 30m --output /private/var/userToRemove/$userToRemove.logarchive
+ 	log collect --last 5m --output /private/var/userToRemove/$userToRemove.logarchive
 	launchctl bootout /Library/LaunchDaemons/removeAdmin.plist
 	rm /Library/LaunchDaemons/removeAdmin.plist
 	
