@@ -35,7 +35,7 @@ sudo defaults write /Library/LaunchDaemons/removeAdmin.plist Label -string "remo
 #Add program argument to have it run the update script
 sudo defaults write /Library/LaunchDaemons/removeAdmin.plist ProgramArguments -array -string /bin/sh -string "/Library/Application Support/JAMF/removeAdminRights.sh"
 
-#Set the run duration (default is 5 minutes
+#Set the run duration (default is 5 minutes)
 sudo defaults write /Library/LaunchDaemons/removeAdmin.plist StartInterval -integer 300
 
 #Set run at load
