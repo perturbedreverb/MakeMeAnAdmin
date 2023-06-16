@@ -46,7 +46,7 @@ sudo chown root:wheel /Library/LaunchDaemons/removeAdmin.plist
 sudo chmod 644 /Library/LaunchDaemons/removeAdmin.plist
 
 #Load the daemon 
-launchctl bootstrap /Library/LaunchDaemons/removeAdmin.plist
+launchctl bootstrap system /Library/LaunchDaemons/removeAdmin.plist
 sleep 10
 
 #########################
@@ -79,7 +79,7 @@ if [[ -f /private/var/userToRemove/user ]]; then
 	/usr/sbin/dseditgroup -o edit -d $userToRemove -t user admin
 	rm -f /private/var/userToRemove/user
  	log collect --last 5m --output /private/var/userToRemove/$userToRemove.logarchive
-	launchctl bootout /Library/LaunchDaemons/removeAdmin.plist
+	launchctl bootout system /Library/LaunchDaemons/removeAdmin.plist
 	rm /Library/LaunchDaemons/removeAdmin.plist
 	
 fi
