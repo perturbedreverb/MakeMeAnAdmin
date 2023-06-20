@@ -16,7 +16,7 @@ Time Frame for Admin Rights: Line 39 | Integer in seconds
 Default: 300 (5 minutes)
 
 Time Frame for logs to be pulled:  Line 81 | String after the "--last" flag in minutes
-Default: 30m
+Default: 5m
 
 Location to save logs: line 81 | String after "--output" flag, must be valid directory
 Default: /private/var/userToRemove/$userToRemove.logarchive
