@@ -9,14 +9,14 @@ It is recommended to push this script as a policy to self service to run only on
 Edits: If you wish to tailor the script to your own needs, here is where to make the changes.
 
 User Prompt: Line 24 | Plain text
-Default Message: You now have administrative rights for 30 minutes. DO NOT ABUSE THIS PRIVILEGE... 
+Default Message: You now have administrative rights for 5 minutes. DO NOT ABUSE THIS PRIVILEGE... 
 Default Button: "Make me an admin, please!"
 
 Time Frame for Admin Rights: Line 39 | Integer in seconds
-Default: 1800 (30 minutes)
+Default: 300 (5 minutes)
 
-Time Frame for logs to be pulled:  Line 82 | String after the "--last" flag in minutes
+Time Frame for logs to be pulled:  Line 81 | String after the "--last" flag in minutes
 Default: 30m
 
-Location to save logs: line 82 | String after "--output" flag, must be valid directory
+Location to save logs: line 81 | String after "--output" flag, must be valid directory
 Default: /private/var/userToRemove/$userToRemove.logarchive
